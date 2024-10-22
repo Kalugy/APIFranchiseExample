@@ -44,7 +44,7 @@ Use Postman to test the API.
 
 5. **Optioonal run with docker**
 ```bash
-docker-compose up --build
+docker-compose up --build 
 
 docker-compose down && docker-compose up --build
 
