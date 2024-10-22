@@ -42,7 +42,7 @@ Use Postman to test the API.
 [Link to Postman](https://www.postman.com/technical-observer-90393005/testing-app-franchise)
 
 
-5. **Optioonal run with docker**
+5. **Optional run with docker**
 ```bash
 docker-compose up --build 
 
