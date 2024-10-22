@@ -21,23 +21,37 @@ This tutorial will guide you step-by-step to run the Node.js application with Mo
 
 ## **Instructions to Run the App**
 
-**Clone the Project**
+1. **Clone the Project**
 ```bash
-git clone repo
+git clone https://github.com/Kalugy/APIFranchiseExample.git
 cd franchise-api
 
 npm install
 ```
 
-**Configure Environment Variables**
+2. **Configure Environment Variables**
 Add MongoDB credentials and other environment variables to your `.env` file.
 
-**Run the Server**
+3. **Run the Server**
 ```bash
 npm run dev
 ```
 
-**Test Endpoints in Postman**
+4. **Test Endpoints in Postman**
 Use Postman to test the API.
-
 [Link to Postman](https://www.postman.com/technical-observer-90393005/testing-app-franchise)
+
+
+5. **Optioonal run with docker**
+```bash
+docker-compose up --build
+
+docker-compose down && docker-compose up --build
+
+```
+
+
+## Note
+- **Task.md**: Show an overview of task with acceptation criteria.
+
+

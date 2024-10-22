@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "3001:3001"
+    environment:
+      MONGO_URI: ${MONGODB_URI}
+      PORT: ${PORT}
+    command: ["npx", "nodemon", "src/index.js"]

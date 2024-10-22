@@ -25,7 +25,7 @@ As a developer, I want to create the first API routes for the project so that th
 ---
 
 ## Extra Points
-- [ ] Plus if the application is packaged with Docker.
+- [✅] Plus if the application is packaged with Docker.
 - [✅] Plus if functional or reactive programming is used. Open to free choice.
 - [✅] Plus if an endpoint is exposed to update the name of a franchise.
 - [✅] Plus if an endpoint is exposed to update the name of a branch.
