@@ -5,7 +5,9 @@ import helmet from "helmet";
 import { PORT } from "./config.js";
 // Routes
 import indexRoutes from "./routes/index.routes.js";
-//import productRoutes from "./routes/products.routes.js";
+import productRoutes from "./routes/products.routes.js";
+import franchiseRoutes from "./routes/franchises.routes.js";
+import branchesRoutes from "./routes/branches.routes.js";
 
 
 const app = express();
@@ -34,7 +36,9 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use("/", indexRoutes);
-//app.use("/api/franchise", productRoutes);
+app.use("/api/", productRoutes);
+app.use("/api/", franchiseRoutes);
+app.use("/api/", branchesRoutes);
 
 
 export default app;

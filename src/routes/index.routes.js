@@ -4,7 +4,7 @@ const router = Router()
 
 router.get("/", (req, res) => {
   res.json({
-    message: "Welcome",
+    message: "Welcome to Franchise",
   });
 });
 

@@ -1,54 +1,77 @@
 import Product from "../models/Product.js";
-
+import Branch from "../models/Branch.js";
 
 
 export const createProduct = async (req, res) => {
-  const { name, category, price } = req.body;
-
   try {
-    const newProduct = new Product({
-      name,
-      category,
-      price
-    });
+    const { name, stock } = req.body;
+    const branch = await Branch.findById(req.params.branchId);
 
-    const productSaved = await newProduct.save();
+    if (!branch) return res.status(404).json({ error: 'Branch not found' });
 
-    res.status(201).json(productSaved);
+    const newProduct = new Product({ name, stock });
+    await newProduct.save();
+
+    branch.products.push(newProduct._id);
+    await branch.save();
+
+    res.status(201).json(newProduct);
   } catch (error) {
-    console.log(error);
-    return res.status(500).json(error);
+    res.status(400).json({ error: error.message });
   }
 };
 
 export const getProductById = async (req, res) => {
-  //const { productId } = req.params;
-
-  //const product = await Product.findById(productId);
-  res.status(200).json('');
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) return res.status(404).json({ message: 'Product not found' });
+    res.json(product);
+  } catch (error) {
+      res.status(500).json({ error: error.message });
+  }
 };
 
 export const getProducts = async (req, res) => {
-  const products = await Product.find();
-  return res.json(products);
+  try {
+    const products = await Product.find();
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
 
 export const updateProductById = async (req, res) => {
-  const updatedProduct = await Product.findByIdAndUpdate(
-    req.params.productId,
-    req.body,
-    {
-      new: true,
-    }
-  );
-  res.status(204).json(updatedProduct);
+  try {
+    const { name, stock } = req.body;
+    const product = await Product.findByIdAndUpdate(
+      req.params.productId,
+      { name, stock },
+      { new: true, runValidators: true }
+    );
+
+    if (!product) return res.status(404).json({ error: 'Product not found' });
+
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
 
 export const deleteProductById = async (req, res) => {
-  const { productId } = req.params;
+  try {
+    const branch = await Branch.findById(req.params.branchId);
 
-  await Product.findByIdAndDelete(productId);
+    if (!branch) return res.status(404).json({ error: 'Branch not found' });
 
-  // code 200 is ok too
-  res.status(204).json();
+    branch.products = branch.products.filter(
+      (product) => product.toString() !== req.params.productId
+    );
+
+    await branch.save();
+    await Product.findByIdAndDelete(req.params.productId);
+
+    res.status(200).json({ message: 'Product deleted' });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
