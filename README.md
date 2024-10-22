@@ -46,8 +46,6 @@ Use Postman to test the API.
 ```bash
 docker-compose up --build 
 
-docker-compose down && docker-compose up --build
-
 ```
 
 ## Deploy Pdn Links
