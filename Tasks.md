@@ -31,7 +31,7 @@ As a developer, I want to create the first API routes for the project so that th
 - [✅] Plus if an endpoint is exposed to update the name of a branch.
 - [✅] Plus if an endpoint is exposed to update the name of a product.
 - [ ] Plus if data persistence is provisioned with Infrastructure as Code, such as Terraform or CloudFormation. Open to free choice.
-- [ ] Plus if the entire solution is deployed in the cloud.
+- [✅] Plus if the entire solution is deployed in the cloud.
 
 
 
