@@ -3,7 +3,7 @@
 ## Story ID: US-001
 ### Epic: API Development
 ### Priority: High
-### Status: In Progress
+### Status: End
 
 ---
 
