@@ -38,7 +38,7 @@ As a developer, I want to create the first API routes for the project so that th
 ---
 
 ## Additional Notes
-- Ensure that all routes follow RESTful principles.
+- Ensure that all routes follow RESTful principlesss.
 
 ---
 
